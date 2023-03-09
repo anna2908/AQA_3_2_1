@@ -12,12 +12,17 @@ public class LoginPage {
     private SelenideElement passwordField = $("[data-test-id=\"password\"] input");
     private SelenideElement loginButton = $("[data-test-id=\"action-login\"]");
 
-    public VerificationPage validLogin(DataHelper.AuthInfo info) {
+
+    public void inputData(DataHelper.AuthInfo info) {
         loginField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         loginField.setValue(info.getLogin());
         passwordField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         passwordField.setValue(info.getPassword());
         loginButton.click();
+    }
+
+    public VerificationPage validLogin(DataHelper.AuthInfo info) {
+        inputData(info);
         return new VerificationPage();
     }
 

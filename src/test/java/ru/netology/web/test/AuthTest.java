@@ -38,9 +38,9 @@ public class AuthTest {
     void shouldBlock() {
         val invalidUser = getInvalidUserInfo();
         val loginPage = new LoginPage();
-        loginPage.validLogin(invalidUser);
-        loginPage.validLogin(invalidUser);
-        loginPage.validLogin(invalidUser);
+        loginPage.inputData(invalidUser);
+        loginPage.inputData(invalidUser);
+        loginPage.inputData(invalidUser);
         loginPage.blockNotification();
     }
 
